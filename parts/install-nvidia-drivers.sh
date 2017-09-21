@@ -13,3 +13,9 @@ sudo wget https://gist.githubusercontent.com/brianmingus/5497756754bfbcdaac34d39
 sudo chmod +x /etc/init.d/nvidia
 sudo update-rc.d nvidia defaults
 sudo service nvidia start
+
+sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub
+sudo sh -c ‘echo “deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64 /” > /etc/apt/sources.list.d/cuda.list’
+sudo rm -rf /var/lib/dpkg/lock
+sudo apt-get update && sudo apt-get install -y --no-install-recommends cuda-drivers
+sudo rmmod nouveau | echo 0
